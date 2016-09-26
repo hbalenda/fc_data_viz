@@ -5,9 +5,16 @@ body {
     margin: 0;
     padding: 0;
 }
+
+p {
+    font-family: "Raleway", sans-serif;
+
+}
+
 #container {
     position:relative;
 }
+
 #trend-container {
     width: 50%;
     height: 50%;
@@ -18,4 +25,45 @@ body {
 
 .trend-arc {
     position: absolute;
+}
+
+#input-container {
+    width: 50%;
+    height: 50%;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+
+#year-button {
+    position:absolute;
+    background-color: black;
+    color: white;
+    padding: 10px 10px;
+    margin: 8px 0;
+    border: 3px solid white;
+    border-radius: 2px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+#year-button:hover {
+    position: absolute;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+input[type=text] {
+    background-color: black;
+    color: white;
+    width: 10%;
+    padding: 10px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid white;
+    border-radius: 2px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
 }
