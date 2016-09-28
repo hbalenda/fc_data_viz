@@ -1,18 +1,13 @@
 body {
+    color: white;
     background-color: black;
     width: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
-}
-
-p {
     font-family: "Raleway", sans-serif;
-
-}
-
-#container {
-    position:relative;
+    text-transform: uppercase;
+    letter-spacing: .1em;
 }
 
 #trend-container {
@@ -33,22 +28,27 @@ p {
     margin: auto;
     position: absolute;
     top: 0; left: 0; bottom: 0; right: 0;
+    text-align: center;
 }
 
-#year-button {
-    position:absolute;
+button {
     background-color: black;
     color: white;
+    width: 100px;
     padding: 10px 10px;
     margin: 8px 0;
     border: 3px solid white;
     border-radius: 2px;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: .1em;
+    font-family: "Raleway", sans-serif;
+
 }
 
-#year-button:hover {
-    position: absolute;
+button:hover {
     background-color: white;
     color: black;
     cursor: pointer;
@@ -57,13 +57,15 @@ p {
 input[type=text] {
     background-color: black;
     color: white;
-    width: 10%;
+    width: 100px;
     padding: 10px 10px;
-    margin: 8px 0;
     box-sizing: border-box;
     border: 3px solid white;
     border-radius: 2px;
     -webkit-transition: 0.5s;
     transition: 0.5s;
     outline: none;
+    letter-spacing: .1em;
+    font-size: 16px;
+    font-family: "Raleway", sans-serif;
 }

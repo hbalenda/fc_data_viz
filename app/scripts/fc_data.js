@@ -16,10 +16,14 @@ $(document).ready(function() {
                     trendData.push(trend);
                 }
             });
+            
+            var total = trendData.length;
+            var interval = 255 / total;
 
-            trendData.forEach(function(trend) {
-                var index = trendData.indexOf(trend);
-                var arcColor = "rgb(255,255,255)";
+            trendData.forEach(function(trend, index) {
+                //var index = trendData.indexOf(trend);
+                var trendColor = index * interval;
+                var arcColor = "rgb(" + trendColor + "," + trendColor + "," + trendColor + ")";
                 var arcLength = trend.endyear - trend.startyear;
                 var point = currentYear - trend.endyear;
                 var vis = d3.select("body").selectAll("#trend-container").append("svg");
@@ -33,7 +37,7 @@ $(document).ready(function() {
                     .classed("trend-arc", true)
                     .append("path")
                     .attr("d", arc)
-                    .attr("fill", arcColor)
+                    .attr("fill", "white")
                     .attr("transform", "translate(400,400)");
 
             })
