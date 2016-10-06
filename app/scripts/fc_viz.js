@@ -21,23 +21,22 @@ $(document).ready(function() {
             var interval = 255 / total;
 
             trendData.forEach(function(trend, index) {
-                //var index = trendData.indexOf(trend);
+                var arcLength = trend.endyear - trend.startyear;
                 var trendColor = index * interval;
                 var arcColor = "rgb(" + trendColor + "," + trendColor + "," + trendColor + ")";
-                var arcLength = trend.endyear - trend.startyear;
                 var point = currentYear - trend.endyear;
                 var vis = d3.select("body").selectAll("#trend-container").append("svg");
                 var pi = Math.PI;
                 var arc = d3.svg.arc()
                     .innerRadius(2*arcLength)
                     .outerRadius(2*(arcLength + 10))
-                    .startAngle(.5 * pi) //radians
+                    .startAngle(.5 * pi)
                     .endAngle(-.5 * pi) 
-                vis.attr("width", "700").attr("height", "700") // Added height and width so arc is visible
+                vis.attr("width", "500").attr("height", "500").attr("viewbox", "0 0 500 500") 
                     .classed("trend-arc", true)
                     .append("path")
                     .attr("d", arc)
-                    .attr("fill", "white")
+                    .attr("fill", arcColor)
                     .attr("transform", "translate(400,400)");
 
             })

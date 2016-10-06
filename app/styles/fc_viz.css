@@ -16,23 +16,24 @@ body {
 }
 
 #trend-container {
-    width: 50%;
-    height: 50%;
-    margin: auto;
-    position: absolute;
-    top: 0; left: 0; bottom: 0; right: 0;
+    margin: 0 auto;
+    position: relative;
+    height:500px;
+    text-align:center;
 }
 
 .trend-arc {
     position: absolute;
+    display:block;
+    margin: 0 auto;
+    left: 0px;
+    right: 0px;
+    width:800px;
 }
 
 #input-container {
-    width: 50%;
-    height: 50%;
-    margin: auto;
-    position: absolute;
-    top: 0; left: 0; bottom: 0; right: 0;
+    position: relative;
+    margin: 0 auto;
     text-align: center;
 }
 
