@@ -10,18 +10,18 @@ $(document).ready(function() {
             }
         }).then(function(data) {
             var trendData = [];
-            console.log(data);
             data.forEach(function(trend){
                 if(trend){
                     trendData.push(trend);
                 }
             });
-            
+            console.log(trendData);
             var total = trendData.length;
             var interval = 255 / total;
 
             trendData.forEach(function(trend, index) {
                 var arcLength = trend.endyear - trend.startyear;
+                //sort array by arcLength, then:
                 var trendColor = index * interval;
                 var arcColor = "rgb(" + trendColor + "," + trendColor + "," + trendColor + ")";
                 var point = currentYear - trend.endyear;
