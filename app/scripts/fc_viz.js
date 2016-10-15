@@ -9,12 +9,15 @@ $(document).ready(function() {
             'X-Auth-Token' : "xAqO541unK52OdXpnfSGWZUW/c3EZy+ANcMO3rJFepzrhy/p8j7zK6DcFC1J98i35zRsH8hPG2qzbMyDshSBmw==" 
             }
         }).then(function(data) {
-            var trendData = [];
-            data.forEach(function(trend){
-                if(trend){
-                    trendData.push(trend);
-                }
+            var trendData = data.filter(function (trend) {
+                return trend !== null;
             });
+            
+            trendData.sort(function (a, b) {
+                return (a.endyear - a.startyear) - (b.endyear - b.staryear);
+            });
+            
+            
             console.log(trendData);
             var total = trendData.length;
             var interval = 255 / total;
