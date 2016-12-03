@@ -9,14 +9,19 @@
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
   </head>
   <body>
-    <div id="trendForm">
+  <div id="app">
+    <div id="trend-wrapper">
       <trend></trend>
       <h3>Occurrence</h3>
       <occurrence></occurrence>
       <occurrence></occurrence>
-      <button id="add-button">+ add another +</button>
+      <button id="add-button" v-on:click="addOcc">+ add another +</button>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="../scripts/componenttest.js"></script>
+    <div id="container">
+      <button id="submit-button" v-on:click="submitData">submit</button>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="../scripts/componenttest.js"></script>
   </body>
 </html>
