@@ -1,6 +1,7 @@
 const authToken = "xAqO541unK52OdXpnfSGWZUW/c3EZy+ANcMO3rJFepzrhy/p8j7zK6DcFC1J98i35zRsH8hPG2qzbMyDshSBmw==";
 const occurrenceTemplate = {
-  template: `<div class="instance-container">
+  template: `
+    <div class="instance-container">
         <label>
           <span>Name</span><input type="text" id="occcurrence" value=""/>
         </label><br>
@@ -10,16 +11,20 @@ const occurrenceTemplate = {
         </label><br>
 
         <label>
-          <span>End Year</span><input type="text" id="endyear" value=""/>
+          <span>End Year</span>
+          <input type="text" id="endyear" value=""/>
         </label><br>
     </div>`
 }
 
 const trendTemplate = {
-  template: `<div id="trend-instance-container">
-    <label for="trend"><h2>Trend Name</h2></label>
-    <input type="text" name="trend" id="trend" value=""/>
-  </div>`
+  template: `
+    <div id="trend-instance-container">
+      <h3>Trend</h3>
+      <label>
+      <span>Name</span><input type="text" name="trend" id="trend" value=""/>
+      </label>
+    </div>`
 }
 
 const vm = new Vue({
@@ -42,7 +47,7 @@ const vm = new Vue({
       console.log(JSON.stringify({trend: { name: trendName, user_id: "1" }}));
       var jqxhr = $.ajax({
         type: "POST",
-        url: "https://flat-circle-app.herokuapp.com/api/trends",
+        url: "http://localhost:3000/api/trends",
         headers: {'X-Auth-Token' : authToken },
         data: JSON.stringify({trend: { name: trendName, user_id: "1" }}),
         contentType: "application/json; charset=UTF-8",
@@ -50,16 +55,17 @@ const vm = new Vue({
           trendId = response.id;
           $('.instance-container').each(function(i, obj){
             var name = obj.getElementsByTagName('input')[0].value;
-            var startYear = obj.getElementsByTagName('input')[1].value;
-            var endYear = obj.getElementsByTagName('input')[2].value;
-            console.log(JSON.stringify({occurrence: { name: name, startYear: startYear, endYear: endYear, trend_id: trendId}}));
-            $.ajax({
+            var startYear = parseInt(obj.getElementsByTagName('input')[1].value);
+            var endYear = parseInt(obj.getElementsByTagName('input')[2].value);
+            console.log(JSON.stringify({occurrence: { name: name, startyear: startYear, endyear: endYear, trend_id: trendId}}));
+            var jqxhr2 = $.ajax({
               type: "POST",
-              url: "https://flat-circle-app.herokuapp.com/api/trends/" + trendId + "/occurrences",
+              url: "http://localhost:3000/api/trends/" + trendId + "/occurrences",
               headers: {'X-Auth-Token' : authToken },
-              data: JSON.stringify({occurrence: { name: name, startYear: startYear, endYear: endYear, trend_id: trendId}}),
+              data: JSON.stringify({occurrence: { name: name, startyear: startYear, endyear: endYear, trend_id: trendId}}),
               contentType: "application/json; charset=UTF-8"
             })
+            console.log(jqxhr2);
           })
         }
       })
