@@ -13,8 +13,7 @@
       <div class="trend-wrapper">
         <trend></trend>
         <h3>Occurrence</h3>
-        <occurrence></occurrence>
-        <occurrence></occurrence>
+        <occurrence v-for="occ in occurrences"></occurrence>
         <button id="add-button" v-on:click="addOcc">+ add another +</button>
       </div>
       <div id="container">

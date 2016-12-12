@@ -30,6 +30,10 @@ const trendTemplate = {
 const vm = new Vue({
   el: '#app',
   data: {
+    occurrences: [
+      {"occ1": ""},
+      {"occ2": ""}
+    ],
     message: "",
     unknownError: `Sorry buddy! Something went wrong. Please check your form and try again?`
   },
@@ -57,12 +61,11 @@ const vm = new Vue({
       }
     },
     addOcc: function(){
-      $('form').append(occurrenceTemplate);
+      this.occurrences.push({ "occ": "" });
     },
     submitData: function(){
       var trendName = document.getElementById('trend').value;
       var trendId;
-      console.log(JSON.stringify({trend: { name: trendName, user_id: "1" }}));
       if (vm.validateName(trendName)) {
         var jqxhr = $.ajax({
           type: "POST",
@@ -77,13 +80,15 @@ const vm = new Vue({
               var startYear = parseInt(obj.getElementsByTagName('input')[1].value);
               var endYear = parseInt(obj.getElementsByTagName('input')[2].value);
               if (vm.validateNum(endYear) && vm.validateNum(startYear) && vm.validateName(name)) {
-                console.log(JSON.stringify({occurrence: { name: name, startyear: startYear, endyear: endYear, trend_id: trendId}}));
                 var jqxhr2 = $.ajax({
                   type: "POST",
                   url: "http://localhost:3000/api/trends/" + trendId + "/occurrences",
                   headers: {'X-Auth-Token' : authToken },
                   data: JSON.stringify({occurrence: { name: name, startyear: startYear, endyear: endYear, trend_id: trendId}}),
-                  contentType: "application/json; charset=UTF-8"
+                  contentType: "application/json; charset=UTF-8",
+                  success: function(response){
+                    alert("Thanks for your help!");
+                  }
                 })
                 console.log(jqxhr2);
               }
