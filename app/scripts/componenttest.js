@@ -19,7 +19,7 @@ const occurrenceTemplate = {
 
 const trendTemplate = {
   template: `
-    <div id="trend-instance-container">
+    <div class="instance-container">
       <h3>Trend</h3>
       <label>
       <span>Name</span><input type="text" name="trend" id="trend" value=""/>
@@ -31,8 +31,6 @@ const vm = new Vue({
   el: '#app',
   data: {
     message: "",
-    numError: `'${value}' is not a valid year`,
-    nameError: `The name '${name}' is invalid`,
     unknownError: `Sorry buddy! Something went wrong. Please check your form and try again?`
   },
   methods: {
@@ -43,7 +41,7 @@ const vm = new Vue({
       if(valid){
         return valid;
       } else if(!valid) {
-        this.message = this.numError;
+        this.message = `'${value}' is not a valid year`;
       } else {
         this.message = this.unknownError;
       }
@@ -53,7 +51,7 @@ const vm = new Vue({
       if (valid) {
         return valid;
       } else if (!valid) {
-        this.message = this.nameError;
+        this.message = `The name '${name}' is invalid`;
       } else {
         this.message = this.unknownError;
       }
