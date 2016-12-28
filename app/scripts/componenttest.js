@@ -79,18 +79,20 @@ const vm = new Vue({
               var name = obj.getElementsByTagName('input')[0].value;
               var startYear = parseInt(obj.getElementsByTagName('input')[1].value);
               var endYear = parseInt(obj.getElementsByTagName('input')[2].value);
-              if (vm.validateNum(endYear) && vm.validateNum(startYear) && vm.validateName(name)) {
-                var jqxhr2 = $.ajax({
-                  type: "POST",
-                  url: "http://localhost:3000/api/trends/" + trendId + "/occurrences",
-                  headers: {'X-Auth-Token' : authToken },
-                  data: JSON.stringify({occurrence: { name: name, startyear: startYear, endyear: endYear, trend_id: trendId}}),
-                  contentType: "application/json; charset=UTF-8",
-                  success: function(response){
-                    alert("Thanks for your help!");
-                  }
-                })
-                console.log(jqxhr2);
+              if (name && startYear && endYear) {
+                if (vm.validateNum(endYear) && vm.validateNum(startYear) && vm.validateName(name)) {
+                  var jqxhr2 = $.ajax({
+                    type: "POST",
+                    url: "http://localhost:3000/api/trends/" + trendId + "/occurrences",
+                    headers: {'X-Auth-Token' : authToken },
+                    data: JSON.stringify({occurrence: { name: name, startyear: startYear, endyear: endYear, trend_id: trendId}}),
+                    contentType: "application/json; charset=UTF-8",
+                    success: function(response){
+                      alert("Thanks for your help!");
+                    }
+                  })
+                  console.log(jqxhr2);
+                }
               }
             })
           }

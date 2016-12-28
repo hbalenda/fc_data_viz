@@ -4,7 +4,7 @@ $(document).ready(function() {
     document.getElementById("year-button").onclick = function (){
         year = document.getElementById("year-input").value;
         $.ajax({
-            url: "https://flat-circle-app.herokuapp.com/api/predictions?year=" + year,
+            url: "http://localhost:3000/api/predictions?year=" + year,
             headers: {
             'X-Auth-Token' : "xAqO541unK52OdXpnfSGWZUW/c3EZy+ANcMO3rJFepzrhy/p8j7zK6DcFC1J98i35zRsH8hPG2qzbMyDshSBmw=="
             }
@@ -28,7 +28,7 @@ $(document).ready(function() {
                 var trendColor = index * interval;
                 var arcColor = "rgb(" + trendColor + "," + trendColor + "," + trendColor + ")";
                 var point = currentYear - trend.endyear;
-                var vis = d3.select("body").selectAll("#trend-container").append("svg");
+                var vis = d3.select("body").selectAll(".trend-container").append("svg");
                 var pi = Math.PI;
                 var arc = d3.svg.arc()
                     .innerRadius(2*arcLength)
@@ -46,3 +46,15 @@ $(document).ready(function() {
         });
     }
 });
+
+var trendDashboard = new Vue({
+  el: '#trend-dashboard',
+  components: {
+    'trend-container': {
+      template: `<div class="trend-container"></div>`,
+    }
+  },
+  data: {
+    state: null
+  }
+})
