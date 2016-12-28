@@ -12,9 +12,9 @@
           <transition name="fade">
             <trend-container v-if="state === 'display'"></trend-container>
           </transition>
-          <div class="input-container">
+          <div id="input-container" class="new-input">
             <input type="text" id="year-input" name="year">
-            <button id="year-button" v-on:click="state = 'display'">press</button>
+            <button id="year-button" v-on:click="submitYear">press</button>
           </div>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

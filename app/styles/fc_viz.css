@@ -24,11 +24,16 @@ body, #trend-dashboard {
     width:800px;
 }
 
-.input-container {
-    position: relative;
-    text-align: center;
-    top: 50%;
-    transform: translateY(-50%);
+.new-input {
+  position: relative;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.used-input {
+  position: relative;
+  text-align: center;
+  transform: translateY(-50%);
 }
 
 #year-button{

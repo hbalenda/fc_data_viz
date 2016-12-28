@@ -56,5 +56,10 @@ var trendDashboard = new Vue({
   },
   data: {
     state: null
+  },
+  methods: {
+    submitYear: function() {
+      this.state = 'display';
+      $('#input-container').toggleClass("new-input used-input");    }
   }
 })
