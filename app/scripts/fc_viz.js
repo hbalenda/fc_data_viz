@@ -4,7 +4,7 @@ $(document).ready(function() {
     document.getElementById("year-button").onclick = function (){
         year = document.getElementById("year-input").value;
         $.ajax({
-            url: "http://localhost:3000/api/predictions?year=" + year,
+            url: "https://flat-circle-app.herokuapp.com/api/predictions?year=" + year,
             headers: {
             'X-Auth-Token' : "xAqO541unK52OdXpnfSGWZUW/c3EZy+ANcMO3rJFepzrhy/p8j7zK6DcFC1J98i35zRsH8hPG2qzbMyDshSBmw=="
             }
@@ -32,8 +32,8 @@ $(document).ready(function() {
               var vis = d3.select("body").selectAll(".trend-container").append("svg");
               var pi = Math.PI;
               var arc = d3.svg.arc()
-                  .innerRadius(2*trend.arcLength)
-                  .outerRadius(2*(trend.arcLength + 10))
+                  .innerRadius(3.5*trend.arcLength)
+                  .outerRadius(3.5*(trend.arcLength + 10))
                   .startAngle(.5 * pi)
                   .endAngle(-.5 * pi)
               vis.attr("width", "500").attr("height", "500").attr("viewbox", "0 0 500 500")

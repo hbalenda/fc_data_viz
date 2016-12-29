@@ -69,7 +69,7 @@ const vm = new Vue({
       if (vm.validateName(trendName)) {
         var jqxhr = $.ajax({
           type: "POST",
-          url: "http://localhost:3000/api/trends",
+          url: "https://flat-circle-app.herokuapp.com/api/trends",
           headers: {'X-Auth-Token' : authToken },
           data: JSON.stringify({trend: { name: trendName, user_id: "1" }}),
           contentType: "application/json; charset=UTF-8",
