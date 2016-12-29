@@ -18,13 +18,11 @@ const occurrenceTemplate = {
 }
 
 const trendTemplate = {
-  template: `
-    <div class="instance-container">
-      <h3>Trend</h3>
-      <label>
+  template: `<div class="trend-container">
+    <label>
       <span>Name</span><input type="text" name="trend" id="trend" value=""/>
-      </label>
-    </div>`
+    </label>
+  </div>`
 }
 
 const vm = new Vue({
@@ -83,7 +81,7 @@ const vm = new Vue({
                 if (vm.validateNum(endYear) && vm.validateNum(startYear) && vm.validateName(name)) {
                   var jqxhr2 = $.ajax({
                     type: "POST",
-                    url: "http://localhost:3000/api/trends/" + trendId + "/occurrences",
+                    url: "https://flat-circle-app.herokuapp.com/api/trends/" + trendId + "/occurrences",
                     headers: {'X-Auth-Token' : authToken },
                     data: JSON.stringify({occurrence: { name: name, startyear: startYear, endyear: endYear, trend_id: trendId}}),
                     contentType: "application/json; charset=UTF-8",

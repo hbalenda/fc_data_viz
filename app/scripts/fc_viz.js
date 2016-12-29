@@ -29,7 +29,7 @@ $(document).ready(function() {
               var trendColor = index * interval;
               var arcColor = "rgb(" + trendColor + "," + trendColor + "," + trendColor + ")";
               var point = currentYear - trend.endyear;
-              var vis = d3.select("body").selectAll(".trend-container").append("svg");
+              var vis = d3.select("body").selectAll(".trend-display").append("svg");
               var pi = Math.PI;
               var arc = d3.svg.arc()
                   .innerRadius(3.5*trend.arcLength)
@@ -51,7 +51,7 @@ var trendDashboard = new Vue({
   el: '#trend-dashboard',
   components: {
     'trend-container': {
-      template: `<div class="trend-container"></div>`,
+      template: `<div class="trend-display"></div>`,
     }
   },
   data: {

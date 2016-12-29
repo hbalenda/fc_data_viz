@@ -10,20 +10,13 @@
   <body>
     <nav>
       <a href="/../fc_data_viz/submit">Help</a> |
-      <a href="/../fc_data_viz/index">Viz</a> |
+      <a href="/../fc_data_viz/">Viz</a> |
       <a href="/../fc_data_viz/about">Wat</a>
     </nav>
-    <div id="trend-dashboard">
-      <transition name="slide-fade">
-        <trend-container v-if="state === 'display'"></trend-container>
-      </transition>
-      <div id="input-container" class="new-input">
-        <div v-if="state != 'display'"><h2>
-          Enter a year:
-        </h2></div>
-        <input type="text" id="year-input" name="year">
-        <button id="year-button" v-on:click="submitYear">submit</button>
-      </div>
+    <div class="">
+      <p>
+
+      </p>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://d3js.org/d3.v3.min.js"></script>

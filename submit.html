@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8">
+    <title>Lend a hand</title>
+    <link rel="stylesheet" href="app/styles/fc_viz.css">
+    <link rel="stylesheet" href="app/styles/submit.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <nav>
+      <a href="/../fc_data_viz/submit">Help</a> |
+      <a href="/../fc_data_viz/">Viz</a> |
+      <a href="/../fc_data_viz/about">Wat</a>
+    </nav>
+  <div id="app">
+      <div class="container">
+        <h3>Trend</h3>
+        <trend></trend>
+        <h3>Occurrence</h3>
+        <occurrence v-for="occ in occurrences"></occurrence>
+        <div class="button-container">
+          <button id="add-button" v-on:click="addOcc">+ add another +</button>
+          <button id="submit-button" v-on:click="submitData">submit</button>
+        </div>
+      </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="app/scripts/submit.js"></script>
+  </body>
+</html>

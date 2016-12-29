@@ -14,9 +14,20 @@ h3 {
     margin: 0 auto;
     padding: 15px 0px;
     white-space: nowrap;
+    left:-20%;
 }
 
-.trend-wrapper {
+.trend-container {
+  position: relative;
+  text-align: right;
+  width: 100%;
+  margin: 0 auto;
+  padding: 15px 0px;
+  white-space: nowrap;
+  left:-20%;
+}
+
+.container {
   width: 50%;
   margin: 0 auto;
 }
@@ -29,4 +40,9 @@ input[type="text"] {
 
 label {
     white-space: nowrap;
+}
+
+button {
+  margin: 10 auto;
+
 }
